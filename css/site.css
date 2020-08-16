@@ -1,0 +1,155 @@
+/* page layout
+ +---container---------------------------+
+ |+--header-----------------------------+|
+ ||+--logo--+|+--header-right----------+||
+ |||        |||+--title---------------+|||
+ |||        |||+----------------------+|||
+ |||        |||+--breadcrumb----------+|||
+ |||        |||+----------------------+|||
+ ||+--------+|+------------------------+||
+ |+-------------------------------------+|
+ |+--body-------------------------------+|
+ ||+--menu--+|+--content--+|+--sidebar--+|
+ ||+--------+|+-----------+|+-----------+|
+ |+-------------------------------------+|
+ |+--footer-----------------------------+|
+ |+-------------------------------------+|
+ +---------------------------------------+
+ */
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background: #eef3f1;
+  font: 12px/170% Verdana, sans-serif;
+  color: #2d2d2d;
+  max-width: 1024px;
+  min-height: 100vh;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  background: #d6e2dd;
+  font-weight: bold;
+}
+.logo {
+  margin: 10px;
+}
+.header-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title {
+  font-size: x-large;
+}
+.breadcrumb ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+}
+.breadcrumb ul li {
+    float: left;
+}
+.breadcrumb ul li a {
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    color: #7e7e7e;
+}
+.breadcrumb ul li a:hover {
+    background-color: #eef3f1;
+}
+.breadcrumb ul li::before {
+    content: url("/img/breadcrumb-prefix.gif");
+}
+.body {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+.menu {
+  background: #d6e2dd;
+  padding-right: 10px;
+  font-weight: bold;
+  min-width: 20%;
+}
+.menu ul {
+    list-style-type: none;
+    margin: 5px;
+    padding: 10px;
+}
+.menu ul li a {
+    padding: 4px;
+    text-decoration: none;
+    color: #7e7e7e;
+}
+.menu ul li a:hover {
+    background-color: #eef3f1;
+}
+.menu-active {
+    font-weight: bold;
+}
+.content {
+    margin-left: 10px;
+    flex: 1;
+}
+.sidebar {
+    background: #d6e2dd;
+    padding-left: 10px;
+}
+.footer {
+    padding: 4px;
+    background: #d6e2dd;
+}
+/* end page layout */
+
+/* book layout
++--book----------------------------+
+|+--book-sample-------------------+|
+|+--------------------------------+|
+|+--book-synopsis-----------------+|
+|+--------------------------------+|
+|+--book-format-------------------+|
+||+--book-cover--+|+--book-info--+||
+||+--------------+|+-------------+||
+|+--------------------------------+|
++----------------------------------+
+ */
+.book {
+    display: flex;
+    flex-direction: column;
+}
+.book-format {
+    margin-right: 10px;
+    border-top: 2px;
+    border-style: solid none none none;
+    border-color: lightgrey;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* book cover images */
+.cover-img, .cover-img-small, .cover-no-img {
+    width: 206px;
+    margin: 10px;
+}
+
+/* utils */
+.side-by-side {
+    display: flex;
+    flex-direction: row;
+}
+.side-by-side div {
+    padding-right: 10px;
+    border-right: 2px;
+    border-right-style: solid;
+    border-right-color: lightgrey;
+    margin-right: 4px;
+}

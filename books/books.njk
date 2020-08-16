@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+title: All Mary's Books
+eleventyNavigation:
+  key: books
+  title: All Mary's Books
+  order: 100
+---
+<div class="side-by-side">
+    <div>
+        <h3>Sagas/Mainstream</h3>
+        {{ collections.saga | eleventyNavigation("books") | eleventyNavigationToHtml | safe }}
+    </div>
+    <div>
+        <h3>Historical Romances</h3>
+        {{ collections.historical | eleventyNavigation("books") | eleventyNavigationToHtml | safe }}
+    </div>
+    <div>
+        <h3>Biography</h3>
+        {{ collections.biography | eleventyNavigation("books") | eleventyNavigationToHtml | safe }}
+    </div>
+</div>
+<hr/>
+<h3>Other formats...</h3>
+<div class="side-by-side">
+    <div>
+        <h3>eBooks</h3>
+        {{ collections.ebook | eleventyNavigation("books") | eleventyNavigationToHtml | safe }}
+    </div>
+    <div>
+        <h3>Audio/Large&nbsp;print</h3>
+        {{ collections.largeprint | eleventyNavigation("books") | eleventyNavigationToHtml | safe }}
+    </div>
+</div>

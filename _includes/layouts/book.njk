@@ -1,0 +1,43 @@
+---
+layout: layouts/base.njk
+---
+<div class="book">
+    <div class="book-synopsis">
+        {{ content | safe }}
+    </div>
+    <div class="book-sample">
+        {% if sample %}
+          You can read the first chapter by downloading this <a href="{{sample | url}}"><strong>sample.pdf</strong></a>
+        {% endif %}
+    </div>
+    <div>
+         <h3>Formats:</h3>
+    </div>
+    {% for item in formats %}
+      <div class="book-format">
+        <div class="book-cover">
+          {% if item.cover %}
+            {% if item.small %}
+              <img src="{{ item.cover | url }}" class="cover-img-small" />
+            {% else %}
+              <img src="{{ item.cover | url }}" class="cover-img" />
+            {% endif %}
+          {% else %}
+              <img src="/img/open-book.jpg" class="cover-no-img" />
+          {% endif %}
+        </div>
+        <div class="book-info">
+          Format: {{ item.format }}</br>
+          ISBN: {{ item.isbn }}</br>
+          {% if item.link %}
+            Publisher: <a href="{{ item.link }}" target=_blank>{{ item.publisher }}</a></br>
+          {% else %}
+            Publisher: {{ item.publisher }}</br>
+          {% endif %}
+          {% if item.comment %}
+            {{ item.comment }}
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+</div>

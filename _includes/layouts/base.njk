@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <title>{{ title }} | marynichols.co.uk</title>
+    <link type="text/css" rel="stylesheet" media="all" href="/css/site.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <a href='/'><img src="/img/open-book.jpg"/></a>
+        </div>
+        <div class="header-right">
+          <div class="title">
+            Mary Nichols, Author of Historical Fiction
+          </div>
+          <div class="breadcrumb">
+            {% if eleventyNavigation and eleventyNavigation.key and eleventyNavigation.parent %}
+              {{ collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) | eleventyNavigationToHtml({ listClass: 'breadcrumb-list', listItemClass: 'breadcrumb-item' }) | safe }}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="menu">
+          {% if eleventyNavigation %}
+            {% set navPages = collections.all | eleventyNavigation %}
+            <ul>
+            {%- for entry in navPages %}
+              <li{% if entry.url == page.url %} class="menu-active"{% endif %}>
+                <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+              </li>
+            {%- endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        <div class="content">
+          <h2 class="content-title">{{ title }}</h2>
+          {{ content | safe }}
+        </div>
+        <div class="sidebar">
+          &nbsp;
+        </div>
+      </div>
+      <div class="footer">
+        Site hosted by a <a href="https://www.digitalocean.com/" target=_blank>Digital Ocean</a> 'droplet' running Virtualmin
+      </div>
+    </div>
+  </body>
+</html>
